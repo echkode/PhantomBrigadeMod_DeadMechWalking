@@ -1,0 +1,106 @@
+hidden: false
+parent: ''
+rating: 1
+textNameFromPreset: 
+textNameFromHardpoint: 
+textName:
+  split: true
+textDescFromPreset: 
+textDesc:
+  split: true
+hardpoints:
+- internal_super
+tags:
+- activation_detonate_punchout
+statDistribution: ''
+stats: {}
+visuals:
+attachments: 
+activation: 
+projectile: 
+beam: 
+custom: 
+functions:
+  general:
+  - context: on_part_destruction
+    checks: 
+    functions:
+    - !SubsystemFunctionModifyOwner
+      functions:
+      - !CombatAreaOfEffect
+        offset:
+          x: 0
+          y: 0
+          z: 0
+        radius: 30
+        exponent: 3
+        dispersed: true
+        integrity:
+          normalized: false
+          leveled: false
+          f: 600
+        concussion: 
+        heat: 
+        stagger: 
+        statusBuildup:
+          key: timed_burn
+          amount: 1
+        crash: 
+        targetCheck: 
+        functionsOnHit: 
+        impactUnitSelf: false
+        impactUnitAllies: true
+        impactUnitHostiles: true
+        impactUnitComposites: true
+        impactProjectiles: false
+        impactProps: true
+        fxDetonation: fx_aoe_explosion_01_large
+        fxDetonationScale: 2
+        fxArea: fx_aoe_volume_01
+        fxHit: fx_aoe_hit_01
+        audioDetonation: 
+      - !CombatUnitEffectSpawnSequence
+        position:
+          x: 0
+          y: 0
+          z: 0
+        rotation:
+          x: 0
+          y: 0
+          z: 0
+        asset:
+          key: fx_impact_general_caliber_01
+          scale:
+            x: 4
+            y: 4
+            z: 4
+        sequence:
+        - delay: 0.1
+          position:
+            x: 1
+            y: 0
+            z: 1
+          rotation:
+            x: 0
+            y: 45
+            z: 0
+        - delay: 0.2
+          position:
+            x: -2
+            y: 0
+            z: -0.5
+          rotation:
+            x: 0
+            y: -75
+            z: 0
+        - delay: 0.3
+          position:
+            x: -0.75
+            y: 0
+            z: -1.5
+          rotation:
+            x: 0
+            y: 160
+            z: 0
+  targeted: 
+  action:

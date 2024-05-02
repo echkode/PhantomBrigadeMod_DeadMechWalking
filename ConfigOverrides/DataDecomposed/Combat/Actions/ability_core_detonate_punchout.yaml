@@ -1,0 +1,90 @@
+dataUI:
+  icon: icon_warning_small
+  color:
+    r: 1
+    g: 0.6568628
+    b: 0.4117647
+    a: 1
+  colorOverride:
+    r: 1
+    g: 0.4166667
+    b: 0
+    a: 1
+  sortingPriority: 800
+  hidden: false
+  irreversible: true
+  heating: false
+  offensive: false
+  modes: 
+dataCore:
+  locking: false
+  trackType: Secondary
+  paintingType: Timing
+  heatType: DataConstant
+  durationType: Data
+  duration: 1.5
+  durationUnitStat: 
+  heatChange: 0
+  secondaryDirection: false
+  eventsOnValidation: 
+  eventsOnCreation: 
+  eventsOnModification: 
+  eventsOnStart: 
+  eventsOnEnd: 
+  eventsOnDispose: 
+  functionsOnValidation: 
+  functionsOnCreation: 
+  functionsOnModification: 
+  functionsOnStart: 
+  - !CombatActionSetMemory
+    key: self_detonate
+    context: Unit
+    resolverMode: Sum
+    resolvers:
+    - !CombatUnitValueSimpleConstant
+      value: 1
+  - !CombatActionSetMemory
+    key: dead_mech_walking
+    context: Unit
+    resolverMode: Sum
+    resolvers:
+    - !CombatUnitValueSimpleConstant
+      value: 1
+  - !CombatActionAddStatus
+    key: timed_meltdown
+  - !CombatActionPilotEject {}
+  functionsOnUpdate: 
+  functionsOnEnd: 
+  functionsOnDispose: 
+  check: 
+  unitCheck:
+    exportCountToMemory: 
+    exportEntitiesToBlackboard: 
+    tags: 
+    name: 
+    faction: 
+    state: 
+    actionPlanned: 
+    locationOccupied: 
+    locationOccupiedUnlinked: 
+    relativeTransform: 
+    blueprints: 
+    classes:
+      mech: true
+    stats: 
+    statsNormalized: 
+    actionsInProgress: 
+    functions:
+    - !CombatValidateUnitPart
+      socket: core
+      preset: 
+      tags:
+        activation_detonate_punchout: true
+      present: true
+dataFactionCheck: 
+dataMovement: 
+dataEquipment:
+dataAI: 
+dataVisualsOnStart:
+dataCustom: 
+functionsTimed: 

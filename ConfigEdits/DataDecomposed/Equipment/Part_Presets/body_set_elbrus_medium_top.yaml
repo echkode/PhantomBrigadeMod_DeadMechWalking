@@ -1,0 +1,7 @@
+removed: false
+edits:
+- 'genSteps.5: !AddHardpoints !+'
+- 'genSteps.5.subsystemsInitial: !d'
+- 'genSteps.5.subsystemsInitial.0: internal_utl_detonation_punchout !+'
+- 'genSteps.5.hardpointsTargeted.0: internal_super !+'
+- 'genSteps.5.priority: 6'
