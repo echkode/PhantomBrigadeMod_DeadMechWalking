@@ -1,6 +1,6 @@
 # DeadMechWalking
 
-A library mod for [Phantom Brigade](https://braceyourselfgames.com/phantom-brigade/) A Phantom Brigade library mod to add a new self-detonation action.
+A library mod for [Phantom Brigade](https://braceyourselfgames.com/phantom-brigade/) to add a new self-detonation action.
 
 It is compatible with game release version **1.3**. It works with both the Steam and Epic installs of the game. All library mods are fragile and susceptible to breakage whenever a new version is released.
 
