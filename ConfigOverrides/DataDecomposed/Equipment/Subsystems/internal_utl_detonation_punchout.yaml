@@ -3,18 +3,16 @@ parent: ''
 rating: 1
 textNameFromPreset: 
 textNameFromHardpoint: 
-textName:
-  split: true
+textName: 
 textDescFromPreset: 
-textDesc:
-  split: true
+textDesc: 
 hardpoints:
 - internal_super
 tags:
 - activation_detonate_punchout
 statDistribution: ''
 stats: {}
-visuals:
+visuals: 
 attachments: 
 activation: 
 projectile: 
@@ -103,4 +101,4 @@ functions:
             y: 160
             z: 0
   targeted: 
-  action:
+  action: 

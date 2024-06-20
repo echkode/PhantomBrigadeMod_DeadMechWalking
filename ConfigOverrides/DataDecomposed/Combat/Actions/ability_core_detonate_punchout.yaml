@@ -2,12 +2,12 @@ dataUI:
   icon: icon_warning_small
   color:
     r: 1
-    g: 0.6568628
+    g: 0.654902
     b: 0.4117647
     a: 1
   colorOverride:
     r: 1
-    g: 0.4166667
+    g: 0.4156863
     b: 0
     a: 1
   sortingPriority: 800
@@ -35,23 +35,29 @@ dataCore:
   functionsOnValidation: 
   functionsOnCreation: 
   functionsOnModification: 
-  functionsOnStart: 
-  - !CombatActionSetMemory
-    key: self_detonate
-    context: Unit
-    resolverMode: Sum
-    resolvers:
-    - !CombatUnitValueSimpleConstant
-      value: 1
-  - !CombatActionSetMemory
-    key: dead_mech_walking
-    context: Unit
-    resolverMode: Sum
-    resolvers:
-    - !CombatUnitValueSimpleConstant
-      value: 1
+  functionsOnStart:
+  - !CombatActionFunctionOwner
+    functions:
+    - !CombatUnitSetMemory
+      key: ek_self_detonate
+      context: Unit
+      operation: Set
+      resolverMode: Sum
+      resolvers:
+      - !CombatUnitValueSimpleConstant
+        value: 1
+    - !CombatUnitSetMemory
+      key: ek_dead_mech_walking
+      context: Unit
+      operation: Set
+      resolverMode: Sum
+      resolvers:
+      - !CombatUnitValueSimpleConstant
+        value: 1
   - !CombatActionAddStatus
     key: timed_meltdown
+    durationFullOverrideStat: 
+    updateCountOverrideStat: 
   - !CombatActionPilotEject {}
   functionsOnUpdate: 
   functionsOnEnd: 
@@ -83,8 +89,8 @@ dataCore:
       present: true
 dataFactionCheck: 
 dataMovement: 
-dataEquipment:
+dataEquipment: 
 dataAI: 
-dataVisualsOnStart:
+dataVisualsOnStart: 
 dataCustom: 
 functionsTimed: 

@@ -102,6 +102,8 @@ namespace EchKode.PBMods.SelfDetonation.DeadMechWalking
 		[HarmonyTranspiler]
 		static IEnumerable<CodeInstruction> Dha_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
+			// Insert a bypass around a missing pilot if the unit has a specific memory.
+
 			var cm = new CodeMatcher(instructions, generator);
 			var getDataKeyActionMethodInfo = AccessTools.DeclaredPropertyGetter(typeof(ActionEntity), nameof(ActionEntity.dataKeyAction));
 			var getLinkedPilotMethodInfo = AccessTools.DeclaredMethod(typeof(IDUtility), nameof(IDUtility.GetLinkedPilot));
@@ -128,6 +130,8 @@ namespace EchKode.PBMods.SelfDetonation.DeadMechWalking
 		[HarmonyTranspiler]
 		static IEnumerable<CodeInstruction> Mas_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
+			// Keep mech moving even if pilotless when it has a specific memory.
+
 			var cm = new CodeMatcher(instructions, generator);
 			var getLinkedPilotMethodInfo = AccessTools.DeclaredMethod(typeof(IDUtility), nameof(IDUtility.GetLinkedPilot));
 			var getLinkedPilotMatch = new CodeMatch(OpCodes.Call, getLinkedPilotMethodInfo);
@@ -156,6 +160,6 @@ namespace EchKode.PBMods.SelfDetonation.DeadMechWalking
 			return cm.InstructionEnumeration();
 		}
 
-		public static bool CheckMemory(PersistentEntity unitPersistent) => unitPersistent.IsMemoryPresent("dead_mech_walking");
+		public static bool CheckMemory(PersistentEntity unitPersistent) => unitPersistent.IsMemoryPresent("ek_dead_mech_walking");
 	}
 }

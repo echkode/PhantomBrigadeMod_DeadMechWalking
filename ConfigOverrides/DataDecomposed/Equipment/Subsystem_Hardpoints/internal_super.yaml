@@ -8,7 +8,7 @@ leveled: false
 group: false
 workshopObscured: false
 forceVisualRoot: false
-icon: s_icon_l32_system_internal_reactor
+icon: s_icon_m_link_squad
 sortPriority: 0
 duplication: 1
 damageWeight: 1
